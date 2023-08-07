@@ -1,0 +1,15 @@
+G:\Fahim\Dot Net Core\Diagonistic\Diagon\Diagon.Application\bin\Debug\net7.0\Diagon.Application.deps.json
+G:\Fahim\Dot Net Core\Diagonistic\Diagon\Diagon.Application\bin\Debug\net7.0\Diagon.Application.dll
+G:\Fahim\Dot Net Core\Diagonistic\Diagon\Diagon.Application\bin\Debug\net7.0\Diagon.Application.pdb
+G:\Fahim\Dot Net Core\Diagonistic\Diagon\Diagon.Application\bin\Debug\net7.0\Diagon.Domain.dll
+G:\Fahim\Dot Net Core\Diagonistic\Diagon\Diagon.Application\bin\Debug\net7.0\Diagon.Domain.pdb
+G:\Fahim\Dot Net Core\Diagonistic\Diagon\Diagon.Application\obj\Debug\net7.0\Diagon.Application.csproj.AssemblyReference.cache
+G:\Fahim\Dot Net Core\Diagonistic\Diagon\Diagon.Application\obj\Debug\net7.0\Diagon.Application.GeneratedMSBuildEditorConfig.editorconfig
+G:\Fahim\Dot Net Core\Diagonistic\Diagon\Diagon.Application\obj\Debug\net7.0\Diagon.Application.AssemblyInfoInputs.cache
+G:\Fahim\Dot Net Core\Diagonistic\Diagon\Diagon.Application\obj\Debug\net7.0\Diagon.Application.AssemblyInfo.cs
+G:\Fahim\Dot Net Core\Diagonistic\Diagon\Diagon.Application\obj\Debug\net7.0\Diagon.Application.csproj.CoreCompileInputs.cache
+G:\Fahim\Dot Net Core\Diagonistic\Diagon\Diagon.Application\obj\Debug\net7.0\Diagon.Application.csproj.CopyComplete
+G:\Fahim\Dot Net Core\Diagonistic\Diagon\Diagon.Application\obj\Debug\net7.0\Diagon.Application.dll
+G:\Fahim\Dot Net Core\Diagonistic\Diagon\Diagon.Application\obj\Debug\net7.0\refint\Diagon.Application.dll
+G:\Fahim\Dot Net Core\Diagonistic\Diagon\Diagon.Application\obj\Debug\net7.0\Diagon.Application.pdb
+G:\Fahim\Dot Net Core\Diagonistic\Diagon\Diagon.Application\obj\Debug\net7.0\ref\Diagon.Application.dll

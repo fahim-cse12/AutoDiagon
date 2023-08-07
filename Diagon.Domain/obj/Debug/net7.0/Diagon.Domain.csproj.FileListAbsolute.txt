@@ -1,0 +1,12 @@
+G:\Fahim\Dot Net Core\Diagonistic\Diagon\Diagon.Domain\bin\Debug\net7.0\Diagon.Domain.deps.json
+G:\Fahim\Dot Net Core\Diagonistic\Diagon\Diagon.Domain\bin\Debug\net7.0\Diagon.Domain.dll
+G:\Fahim\Dot Net Core\Diagonistic\Diagon\Diagon.Domain\bin\Debug\net7.0\Diagon.Domain.pdb
+G:\Fahim\Dot Net Core\Diagonistic\Diagon\Diagon.Domain\obj\Debug\net7.0\Diagon.Domain.csproj.AssemblyReference.cache
+G:\Fahim\Dot Net Core\Diagonistic\Diagon\Diagon.Domain\obj\Debug\net7.0\Diagon.Domain.GeneratedMSBuildEditorConfig.editorconfig
+G:\Fahim\Dot Net Core\Diagonistic\Diagon\Diagon.Domain\obj\Debug\net7.0\Diagon.Domain.AssemblyInfoInputs.cache
+G:\Fahim\Dot Net Core\Diagonistic\Diagon\Diagon.Domain\obj\Debug\net7.0\Diagon.Domain.AssemblyInfo.cs
+G:\Fahim\Dot Net Core\Diagonistic\Diagon\Diagon.Domain\obj\Debug\net7.0\Diagon.Domain.csproj.CoreCompileInputs.cache
+G:\Fahim\Dot Net Core\Diagonistic\Diagon\Diagon.Domain\obj\Debug\net7.0\Diagon.Domain.dll
+G:\Fahim\Dot Net Core\Diagonistic\Diagon\Diagon.Domain\obj\Debug\net7.0\refint\Diagon.Domain.dll
+G:\Fahim\Dot Net Core\Diagonistic\Diagon\Diagon.Domain\obj\Debug\net7.0\Diagon.Domain.pdb
+G:\Fahim\Dot Net Core\Diagonistic\Diagon\Diagon.Domain\obj\Debug\net7.0\ref\Diagon.Domain.dll
