@@ -8976,25 +8976,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\uks.t7\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\forhad.hossain\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\Fahim\\Dot Net Core\\Diagonistic\\Diagon\\Diagon.Web\\Diagon.Web.csproj",
+      "projectUniqueName": "D:\\Practice Project\\AutoDiagon\\Diagon.Web\\Diagon.Web.csproj",
       "projectName": "Diagon.Web",
-      "projectPath": "G:\\Fahim\\Dot Net Core\\Diagonistic\\Diagon\\Diagon.Web\\Diagon.Web.csproj",
-      "packagesPath": "C:\\Users\\uks.t7\\.nuget\\packages\\",
-      "outputPath": "G:\\Fahim\\Dot Net Core\\Diagonistic\\Diagon\\Diagon.Web\\obj\\",
+      "projectPath": "D:\\Practice Project\\AutoDiagon\\Diagon.Web\\Diagon.Web.csproj",
+      "packagesPath": "C:\\Users\\forhad.hossain\\.nuget\\packages\\",
+      "outputPath": "D:\\Practice Project\\AutoDiagon\\Diagon.Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\uks.t7\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\forhad.hossain\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -9003,17 +9001,19 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
+        "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "G:\\Fahim\\Dot Net Core\\Diagonistic\\Diagon\\Diagon.Application\\Diagon.Application.csproj": {
-              "projectPath": "G:\\Fahim\\Dot Net Core\\Diagonistic\\Diagon\\Diagon.Application\\Diagon.Application.csproj"
+            "D:\\Practice Project\\AutoDiagon\\Diagon.Application\\Diagon.Application.csproj": {
+              "projectPath": "D:\\Practice Project\\AutoDiagon\\Diagon.Application\\Diagon.Application.csproj"
             },
-            "G:\\Fahim\\Dot Net Core\\Diagonistic\\Diagon\\Diagon.Infrastucture\\Diagon.Infrastucture.csproj": {
-              "projectPath": "G:\\Fahim\\Dot Net Core\\Diagonistic\\Diagon\\Diagon.Infrastucture\\Diagon.Infrastucture.csproj"
+            "D:\\Practice Project\\AutoDiagon\\Diagon.Infrastucture\\Diagon.Infrastucture.csproj": {
+              "projectPath": "D:\\Practice Project\\AutoDiagon\\Diagon.Infrastucture\\Diagon.Infrastucture.csproj"
             }
           }
         }
@@ -9082,7 +9082,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
       }
     }
   },

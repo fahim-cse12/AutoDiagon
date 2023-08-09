@@ -4,14 +4,8 @@ using Diagon.Application.Service.Common;
 using Diagon.Application.Service.UserService.Dto;
 using Diagon.Domain.Users;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Routing;
 using Org.BouncyCastle.Asn1.Ocsp;
-using System.Diagnostics;
-using System.Security.Policy;
-using System.Text;
 
 namespace Diagon.Application.Service.UserService
 {
@@ -22,17 +16,36 @@ namespace Diagon.Application.Service.UserService
         private readonly IMailService _mailService;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly UserManager<User> _userManager;
-       
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
 
         public UserService(JWTService jWTService , SignInManager<User> signInManager,IMailService mailService,
-           RoleManager<IdentityRole> roleManager, UserManager<User> userManager) 
+           RoleManager<IdentityRole> roleManager, UserManager<User> userManager, IHttpContextAccessor httpContextAccessor) 
         {
             _jWTService = jWTService;
             _signInManager = signInManager;
             _mailService = mailService;
             _roleManager = roleManager;
             _userManager = userManager;
-        }    
+            _httpContextAccessor = httpContextAccessor; 
+        }
+      
+        private ApiResponse<T> CreateResponse<T>(bool status, T data, string message, List<string>? erros)
+        {
+            return new ApiResponse<T>
+            {
+                Success = status,
+                Data = data,
+                Message = message,
+                Errors = erros
+            };
+        }
+
+        private string GetBaseUrl()
+        {
+            var request = _httpContextAccessor.HttpContext.Request;
+            return $"{request.Scheme}://{request.Host.ToUriComponent()}{request.PathBase}";
+        }
         private UserDto CreateApplicationUserDto(User user)
         {
             return new UserDto
@@ -48,14 +61,7 @@ namespace Diagon.Application.Service.UserService
             {
                 if (loginDto == null)
                 {
-                    ApiResponse<UserDto> nullResponse = new ApiResponse<UserDto>
-                    {
-                        Success = false,
-                        Data = null,
-                        Message = "User name or password cannot be null",
-                        Errors = null
-                    };
-                    return nullResponse;
+                    return CreateResponse<UserDto>(false, null, "User name or password cannot be null", null);                   
                 }
 
                 var user = await _userManager.FindByNameAsync(loginDto.UserName);
@@ -63,35 +69,17 @@ namespace Diagon.Application.Service.UserService
                 if (user != null && await _userManager.CheckPasswordAsync(user, loginDto.Password))
                 {
                     var userDto = CreateApplicationUserDto(user);
-                    ApiResponse<UserDto> successResponse = new ApiResponse<UserDto>
-                    {
-                        Success = true,
-                        Data = userDto,
-                        Message = "Login Successfully",
-                        Errors = null
-                    };
-                    return successResponse;
+                    return CreateResponse<UserDto>(true, userDto, "Login Successfully", null);
+                   
                 }
 
-                ApiResponse<UserDto> invalidResponse = new ApiResponse<UserDto>
-                {
-                    Success = false,
-                    Data = null,
-                    Message = "Invalid User name or Password",
-                    Errors = null
-                };
-                return invalidResponse;
+                return CreateResponse<UserDto>(false, null, "Invalid User name or Password", null);
+               
             }
             catch (Exception ex)
             {
-                ApiResponse<UserDto> errorResponse = new ApiResponse<UserDto>
-                {
-                    Success = false,
-                    Data = null,
-                    Message = ex.Message,
-                    Errors = null
-                };
-                return errorResponse;
+                return CreateResponse<UserDto>(false, null, ex.Message, null);
+               
             }
         }
 
@@ -101,27 +89,13 @@ namespace Diagon.Application.Service.UserService
             {
                 if (registerDto == null)
                 {
-                    ApiResponse<string> nullResponse = new ApiResponse<string>
-                    {
-                        Success = false,
-                        Data = null,
-                        Message = "UserName, Email and Password not be Empty",
-                        Errors = null
-                    };
-                    return nullResponse;
+                    return CreateResponse<string>(false,null,"UserName, Email and Password not be Empty", null);                  
                 }
 
                 var isExist = await _userManager.FindByEmailAsync(registerDto.Email);
                 if (isExist != null)
                 {
-                    ApiResponse<string> existResponse = new ApiResponse<string>
-                    {
-                        Success = false,
-                        Data = null,
-                        Message = "This email is already exist",
-                        Errors = null
-                    };
-                    return existResponse;
+                    return CreateResponse<string>(false,null,"This email is already exist", null);                  
                    
                 }
 
@@ -137,45 +111,23 @@ namespace Diagon.Application.Service.UserService
                 if (!result.Succeeded)
                 {
                     List<string> errorMessages = result.Errors.Select(error => error.Description).ToList();
-                    ApiResponse<string> errorCreateResponse = new ApiResponse<string>
-                    {
-                        Success = false,
-                        Data = null,
-                        Message = "User has failed to create",
-                        Errors = errorMessages
-                    };
-                    return errorCreateResponse;
-                    //  return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User Failed to Create" });
+                    return CreateResponse<string>( false, null, "User has failed to create", errorMessages);                  
 
                 }
                 var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-            //var confirmationLink = _urlHelper.Action("ConfirmEmail", "Auth", new { token, user.Email });
+                string baseUrl = GetBaseUrl();
+                string confirmationLink = $"{baseUrl}/api/Auth/ConfirmEmail?token={Uri.EscapeDataString(token)}&email={Uri.EscapeDataString(user.Email)}";
 
-                var confirmationLink = "http://localhost:5115/api/Auth/ConfirmEmail?token=" + token + "&email=" + user.Email;
                 var message = new Message(new string[] { user.Email }, "Confirmation Email Link", confirmationLink);
 
                 _mailService.SendEmail(message);
-
-                ApiResponse<string> roleResponse = new ApiResponse<string>
-                {
-                    Success = true,
-                    Data = null,
-                    Message = $"User Created and mail sent o {user.Email} successfully!",
-                    Errors = null
-                };
-                return roleResponse;
+                return CreateResponse<string>(true, null, $"User Created and mail sent o {user.Email} successfully!", null);
+               
                
             }
             catch (Exception ex)
             {
-                ApiResponse<string> errorResponse = new ApiResponse<string>
-                {
-                    Success = false,
-                    Data = null,
-                    Message = ex.Message,
-                    Errors = null
-                };
-                return errorResponse;
+                return CreateResponse<string>(false, null, ex.Message, null);
             }
         }
 
@@ -185,14 +137,8 @@ namespace Diagon.Application.Service.UserService
             {
                 if(string.IsNullOrEmpty(token) && string.IsNullOrEmpty(email))
                 {
-                    ApiResponse<string> nullResponse = new ApiResponse<string>
-                    {
-                        Success = false,
-                        Data = null,
-                        Message = "email and token is mendatory for verify",
-                        Errors = null
-                    };
-                    return nullResponse;
+                    return CreateResponse<string>(false, null, "email and token is mendatory for verify", null);
+                      
                 }
                 else
                 {
@@ -202,40 +148,49 @@ namespace Diagon.Application.Service.UserService
                         var result = await _userManager.ConfirmEmailAsync(user, token);
                         if (result.Succeeded)
                         {
-                            ApiResponse<string> successResponse = new ApiResponse<string>
-                            {
-                                Success = true,
-                                Data = null,
-                                Message = "Email Verified Successfully",
-                                Errors = null
-                            };
-                            return successResponse;
-                           
+                            return CreateResponse<string>(true, null, "Email Verified Successfully", null);                                                     
                         }
 
                     }
-                    ApiResponse<string> failsResponse = new ApiResponse<string>
-                    {
-                        Success = true,
-                        Data = null,
-                        Message = "This user is not exist !",
-                        Errors = null
-                    };
-                    return failsResponse;                   
-
+                    return CreateResponse<string>(false, null, "This user is not exist !", null);                                  
                 }
               
             }
             catch (Exception ex)
             {
-                ApiResponse<string> exceptionResponse = new ApiResponse<string>
+                return CreateResponse<string>(false, null,ex.Message, null);
+            }
+        }
+
+        public async Task<ApiResponse<string>> ForgetPassword(string email)
+        {
+            try
+            {
+                if (email == null)
                 {
-                    Success = false,
-                    Data = null,
-                    Message = ex.Message,
-                    Errors = null
-                };
-                return exceptionResponse;
+                    return CreateResponse<string>(false, null, "Email should not be Null", null);                 
+                }
+                var user = await _userManager.FindByEmailAsync(email);
+                if (user != null)
+                {
+                    var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+                    string baseUrl = GetBaseUrl();
+                    var forgotpasswordLink = $"{baseUrl}/api/Auth/resetpassword?token={Uri.EscapeDataString(token)}&email={Uri.EscapeDataString(user.Email)}";
+                
+                    var message = new Message(new string[] { user.Email }, "Forgot Password Link", forgotpasswordLink);
+                    _mailService.SendEmail(message);
+                    return CreateResponse<string>(true, null, $"Password Change Request sent this mail { user.Email} successfully!", null);                 
+                    
+                }
+                else
+                {
+                    return CreateResponse<string>(false, null, "This Email is not exist", null);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                return CreateResponse<string>(false, null,ex.Message, null);
             }
         }
     }

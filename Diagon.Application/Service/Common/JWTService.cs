@@ -29,17 +29,19 @@ namespace Diagon.Application.Service.Common
                 new Claim("my own claim name", "this is the value")
             };
 
-            var credential = new SigningCredentials(_jwtKey, SecurityAlgorithms.HmacSha512Signature);
+             var credential = new SigningCredentials(_jwtKey, SecurityAlgorithms.HmacSha256);
+
             var tokenDescription = new SecurityTokenDescriptor
             {
                 SigningCredentials = credential,
-                Expires = DateTime.UtcNow.AddDays(int.Parse(_config["JWT:ExpireInDays"])),
                 Subject = new ClaimsIdentity(userClaims),
+                Expires = DateTime.Now.AddDays(2),
                 Issuer = _config["JWT:ValidIssuer"]
             };
 
             var tokenHandler = new JwtSecurityTokenHandler();
-            var jwt = tokenHandler.CreateToken(tokenDescription);
+            var jwt = tokenHandler.CreateToken(tokenDescription);          
+
             return tokenHandler.WriteToken(jwt);    
         }
 

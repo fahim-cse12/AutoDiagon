@@ -9,5 +9,6 @@ namespace Diagon.Application.IService.IUserService
         public Task<ApiResponse<UserDto>> UserLogin(LoginDto loginDto);
         public Task<ApiResponse<string>> RegisterUser(RegisterDto registerDto);
         public Task<ApiResponse<string>> EmailConfirmation(string token, string email);
+        public Task<ApiResponse<string>> ForgetPassword(string email);
     }
 }

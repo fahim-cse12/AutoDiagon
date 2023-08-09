@@ -10,3 +10,15 @@ G:\Fahim\Dot Net Core\Diagonistic\Diagon\Diagon.Domain\obj\Debug\net7.0\Diagon.D
 G:\Fahim\Dot Net Core\Diagonistic\Diagon\Diagon.Domain\obj\Debug\net7.0\refint\Diagon.Domain.dll
 G:\Fahim\Dot Net Core\Diagonistic\Diagon\Diagon.Domain\obj\Debug\net7.0\Diagon.Domain.pdb
 G:\Fahim\Dot Net Core\Diagonistic\Diagon\Diagon.Domain\obj\Debug\net7.0\ref\Diagon.Domain.dll
+D:\Practice Project\AutoDiagon\Diagon.Domain\bin\Debug\net7.0\Diagon.Domain.deps.json
+D:\Practice Project\AutoDiagon\Diagon.Domain\bin\Debug\net7.0\Diagon.Domain.dll
+D:\Practice Project\AutoDiagon\Diagon.Domain\bin\Debug\net7.0\Diagon.Domain.pdb
+D:\Practice Project\AutoDiagon\Diagon.Domain\obj\Debug\net7.0\Diagon.Domain.csproj.AssemblyReference.cache
+D:\Practice Project\AutoDiagon\Diagon.Domain\obj\Debug\net7.0\Diagon.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Practice Project\AutoDiagon\Diagon.Domain\obj\Debug\net7.0\Diagon.Domain.AssemblyInfoInputs.cache
+D:\Practice Project\AutoDiagon\Diagon.Domain\obj\Debug\net7.0\Diagon.Domain.AssemblyInfo.cs
+D:\Practice Project\AutoDiagon\Diagon.Domain\obj\Debug\net7.0\Diagon.Domain.csproj.CoreCompileInputs.cache
+D:\Practice Project\AutoDiagon\Diagon.Domain\obj\Debug\net7.0\Diagon.Domain.dll
+D:\Practice Project\AutoDiagon\Diagon.Domain\obj\Debug\net7.0\refint\Diagon.Domain.dll
+D:\Practice Project\AutoDiagon\Diagon.Domain\obj\Debug\net7.0\Diagon.Domain.pdb
+D:\Practice Project\AutoDiagon\Diagon.Domain\obj\Debug\net7.0\ref\Diagon.Domain.dll

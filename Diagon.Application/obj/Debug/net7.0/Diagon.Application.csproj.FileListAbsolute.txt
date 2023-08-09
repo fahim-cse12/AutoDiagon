@@ -13,3 +13,18 @@ G:\Fahim\Dot Net Core\Diagonistic\Diagon\Diagon.Application\obj\Debug\net7.0\Dia
 G:\Fahim\Dot Net Core\Diagonistic\Diagon\Diagon.Application\obj\Debug\net7.0\refint\Diagon.Application.dll
 G:\Fahim\Dot Net Core\Diagonistic\Diagon\Diagon.Application\obj\Debug\net7.0\Diagon.Application.pdb
 G:\Fahim\Dot Net Core\Diagonistic\Diagon\Diagon.Application\obj\Debug\net7.0\ref\Diagon.Application.dll
+D:\Practice Project\AutoDiagon\Diagon.Application\bin\Debug\net7.0\Diagon.Application.deps.json
+D:\Practice Project\AutoDiagon\Diagon.Application\bin\Debug\net7.0\Diagon.Application.dll
+D:\Practice Project\AutoDiagon\Diagon.Application\bin\Debug\net7.0\Diagon.Application.pdb
+D:\Practice Project\AutoDiagon\Diagon.Application\bin\Debug\net7.0\Diagon.Domain.dll
+D:\Practice Project\AutoDiagon\Diagon.Application\bin\Debug\net7.0\Diagon.Domain.pdb
+D:\Practice Project\AutoDiagon\Diagon.Application\obj\Debug\net7.0\Diagon.Application.csproj.AssemblyReference.cache
+D:\Practice Project\AutoDiagon\Diagon.Application\obj\Debug\net7.0\Diagon.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Practice Project\AutoDiagon\Diagon.Application\obj\Debug\net7.0\Diagon.Application.AssemblyInfoInputs.cache
+D:\Practice Project\AutoDiagon\Diagon.Application\obj\Debug\net7.0\Diagon.Application.AssemblyInfo.cs
+D:\Practice Project\AutoDiagon\Diagon.Application\obj\Debug\net7.0\Diagon.Application.csproj.CoreCompileInputs.cache
+D:\Practice Project\AutoDiagon\Diagon.Application\obj\Debug\net7.0\Diagon.Application.csproj.CopyComplete
+D:\Practice Project\AutoDiagon\Diagon.Application\obj\Debug\net7.0\Diagon.Application.dll
+D:\Practice Project\AutoDiagon\Diagon.Application\obj\Debug\net7.0\refint\Diagon.Application.dll
+D:\Practice Project\AutoDiagon\Diagon.Application\obj\Debug\net7.0\Diagon.Application.pdb
+D:\Practice Project\AutoDiagon\Diagon.Application\obj\Debug\net7.0\ref\Diagon.Application.dll
