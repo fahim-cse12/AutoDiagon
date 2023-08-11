@@ -100,5 +100,23 @@ namespace Diagon.Web.Controllers
                 model
             });
         }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [Route("updatepassword")]
+        public async Task<IActionResult> UpdatePassword(ResetPassword resetPassword)
+        {
+            var responseResult = await _userService.UpdatePassword(resetPassword);
+
+            // Check user exist or not
+            if (responseResult.Success)
+            {
+                return Ok(responseResult); // 200 OK with the ApiResponse<UserDto>
+            }
+            else
+            {
+                return BadRequest(responseResult); // 400 Bad Request with the ApiResponse<UserDto>
+            }
+        }
     }
 }

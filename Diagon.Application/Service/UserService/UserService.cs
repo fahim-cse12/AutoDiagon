@@ -5,6 +5,7 @@ using Diagon.Application.Service.UserService.Dto;
 using Diagon.Domain.Users;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Org.BouncyCastle.Asn1.Ocsp;
 
 namespace Diagon.Application.Service.UserService
@@ -191,6 +192,37 @@ namespace Diagon.Application.Service.UserService
             catch (Exception ex)
             {
                 return CreateResponse<string>(false, null,ex.Message, null);
+            }
+        }
+
+        public async Task<ApiResponse<string>> UpdatePassword(ResetPassword password)
+        {
+            try
+            {
+                if (password == null)
+                {
+                    return CreateResponse<string>(false, null, "Email should not be Null", null);
+                }
+                var user = await _userManager.FindByEmailAsync(password.Email);
+                if (user != null)
+                {
+                    var resetPasswordResult = await _userManager.ResetPasswordAsync(user, password.Token, password.Password);
+                    if (!resetPasswordResult.Succeeded)
+                    {
+                        List<string> errorMessages = resetPasswordResult.Errors.Select(error => error.Description).ToList();
+                        
+                        return CreateResponse<string>(false, null, string.Empty, errorMessages);
+                    }
+
+                    return CreateResponse<string>(true, null, "Password has been changed successfully!", null);
+                   
+                }
+                return CreateResponse<string>(false, null, "Something Went wrong please try again", null);
+                
+            }
+            catch (Exception ex)
+            {
+                return CreateResponse<string>(false, null, ex.Message, null);
             }
         }
     }
